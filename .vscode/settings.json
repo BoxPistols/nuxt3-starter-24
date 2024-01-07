@@ -1,0 +1,5 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.suggest.preview": true,
+    "editor.suggest.showStatusBar": true
+}
