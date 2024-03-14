@@ -2,9 +2,9 @@
   "name": "meta-tags",
   "private": true,
   "scripts": {
-    "build": "nuxi build",
+    "build": "nuxt build",
     "dev": "nuxi dev --port 3333",
-    "start": "node .output/server"
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "nuxt": "^3.8.1"
