@@ -881,9 +881,23 @@
   resolved "https://registry.yarnpkg.com/@parcel/watcher/-/watcher-2.3.0.tgz#803517abbc3981a1a1221791d9f59dc0590d50f9"
   integrity sha512-pW7QaFiL11O0BphO+bq3MgqeX/INAk9jgBldVDYjlQPO4VddoZnF22TcF9onMhnLVHuNqBJeRf+Fj7eezi/+rQ==
   dependencies:
+    detect-libc "^1.0.3"
     is-glob "^4.0.3"
     micromatch "^4.0.5"
-    napi-wasm "^1.1.0"
+    node-addon-api "^7.0.0"
+  optionalDependencies:
+    "@parcel/watcher-android-arm64" "2.3.0"
+    "@parcel/watcher-darwin-arm64" "2.3.0"
+    "@parcel/watcher-darwin-x64" "2.3.0"
+    "@parcel/watcher-freebsd-x64" "2.3.0"
+    "@parcel/watcher-linux-arm-glibc" "2.3.0"
+    "@parcel/watcher-linux-arm64-glibc" "2.3.0"
+    "@parcel/watcher-linux-arm64-musl" "2.3.0"
+    "@parcel/watcher-linux-x64-glibc" "2.3.0"
+    "@parcel/watcher-linux-x64-musl" "2.3.0"
+    "@parcel/watcher-win32-arm64" "2.3.0"
+    "@parcel/watcher-win32-ia32" "2.3.0"
+    "@parcel/watcher-win32-x64" "2.3.0"
 
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
@@ -2182,6 +2196,30 @@ esbuild@^0.19.11, esbuild@^0.19.3, esbuild@^0.19.8:
   version "0.19.11"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.19.11.tgz#4a02dca031e768b5556606e1b468fe72e3325d96"
   integrity sha512-HJ96Hev2hX/6i5cDVwcqiJBBtuo9+FeIJOtZ9W1kA5M6AMJRHUZlpYZ1/SbEwtO0ioNAW8rUooVpC/WehY2SfA==
+  optionalDependencies:
+    "@esbuild/aix-ppc64" "0.19.11"
+    "@esbuild/android-arm" "0.19.11"
+    "@esbuild/android-arm64" "0.19.11"
+    "@esbuild/android-x64" "0.19.11"
+    "@esbuild/darwin-arm64" "0.19.11"
+    "@esbuild/darwin-x64" "0.19.11"
+    "@esbuild/freebsd-arm64" "0.19.11"
+    "@esbuild/freebsd-x64" "0.19.11"
+    "@esbuild/linux-arm" "0.19.11"
+    "@esbuild/linux-arm64" "0.19.11"
+    "@esbuild/linux-ia32" "0.19.11"
+    "@esbuild/linux-loong64" "0.19.11"
+    "@esbuild/linux-mips64el" "0.19.11"
+    "@esbuild/linux-ppc64" "0.19.11"
+    "@esbuild/linux-riscv64" "0.19.11"
+    "@esbuild/linux-s390x" "0.19.11"
+    "@esbuild/linux-x64" "0.19.11"
+    "@esbuild/netbsd-x64" "0.19.11"
+    "@esbuild/openbsd-x64" "0.19.11"
+    "@esbuild/sunos-x64" "0.19.11"
+    "@esbuild/win32-arm64" "0.19.11"
+    "@esbuild/win32-ia32" "0.19.11"
+    "@esbuild/win32-x64" "0.19.11"
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -3390,9 +3428,9 @@ nitropack@^2.8.1:
     unstorage "^1.10.1"
 
 node-addon-api@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-7.0.0.tgz#8136add2f510997b3b94814f4af1cce0b0e3962e"
-  integrity sha512-vgbBJTS4m5/KkE16t5Ly0WW9hz46swAstv0hYYwMtbG7AznRhNyfLRe8HZAiWIpcHzoO7HxhLuBQj9rJ/Ho0ZA==
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-7.1.0.tgz#71f609369379c08e251c558527a107107b5e0fdb"
+  integrity sha512-mNcltoe1R8o7STTegSOHdnJNN7s5EUvhoS7ShnTHDyOSd+8H+UdWODq6qSv67PjC8Zc5JRT8+oLAMCr0SIXw7g==
 
 node-fetch-native@^1.4.0, node-fetch-native@^1.4.1, node-fetch-native@^1.6.1:
   version "1.6.1"
@@ -4251,6 +4289,19 @@ rollup@^4.2.0, rollup@^4.6.0:
   dependencies:
     "@types/estree" "1.0.5"
   optionalDependencies:
+    "@rollup/rollup-android-arm-eabi" "4.9.4"
+    "@rollup/rollup-android-arm64" "4.9.4"
+    "@rollup/rollup-darwin-arm64" "4.9.4"
+    "@rollup/rollup-darwin-x64" "4.9.4"
+    "@rollup/rollup-linux-arm-gnueabihf" "4.9.4"
+    "@rollup/rollup-linux-arm64-gnu" "4.9.4"
+    "@rollup/rollup-linux-arm64-musl" "4.9.4"
+    "@rollup/rollup-linux-riscv64-gnu" "4.9.4"
+    "@rollup/rollup-linux-x64-gnu" "4.9.4"
+    "@rollup/rollup-linux-x64-musl" "4.9.4"
+    "@rollup/rollup-win32-arm64-msvc" "4.9.4"
+    "@rollup/rollup-win32-ia32-msvc" "4.9.4"
+    "@rollup/rollup-win32-x64-msvc" "4.9.4"
     fsevents "~2.3.2"
 
 run-applescript@^5.0.0:
