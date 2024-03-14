@@ -103,7 +103,11 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
-    preset: 'node'
+    preset: 'node',
+    output: {
+      dir: '.output',
+      publicDir: '.output/public'
+    }
   },
   devServer: {
     host: 'localhost'
