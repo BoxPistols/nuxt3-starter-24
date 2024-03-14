@@ -1,4 +1,22 @@
 // nuxt.config.ts
+function detectInAppBrowser(ua: string): string | null {
+  ua = ua.toLowerCase().trim()
+  const isIOS =
+    ua.includes('iphone') || ua.includes('ipod') || ua.includes('ipad')
+  const isAndroid = ua.includes('android')
+
+  // LINE
+  if (ua.includes(' line/')) {
+    return isIOS
+      ? 'is_line_ios'
+      : isAndroid
+      ? 'is_line_android'
+      : 'is_line_unknown'
+  }
+
+  return null
+}
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -19,32 +37,44 @@ export default defineNuxtConfig({
         {
           property: 'og:title',
           //@ts-ignore
-          content: () =>
-            process.server
-              ? useRequestHeaders()['user-agent']?.includes('Line')
+          content: () => {
+            if (process.server) {
+              const userAgent = useRequestHeaders()['user-agent']
+              const inAppBrowser = detectInAppBrowser(userAgent || '')
+              return inAppBrowser?.includes('line')
                 ? 'LINE用のタイトル'
                 : 'My Stylish Website'
-              : 'My Stylish Website'
+            }
+            return 'My Stylish Website'
+          }
         },
         {
           property: 'og:description',
           //@ts-ignore
-          content: () =>
-            process.server
-              ? useRequestHeaders()['user-agent']?.includes('Line')
+          content: () => {
+            if (process.server) {
+              const userAgent = useRequestHeaders()['user-agent']
+              const inAppBrowser = detectInAppBrowser(userAgent || '')
+              return inAppBrowser?.includes('line')
                 ? 'LINE用の説明文'
                 : 'A stylish website built with Nuxt'
-              : 'A stylish website built with Nuxt'
+            }
+            return 'A stylish website built with Nuxt'
+          }
         },
         {
           property: 'og:image',
           //@ts-ignore
-          content: () =>
-            process.server
-              ? useRequestHeaders()['user-agent']?.includes('Line')
+          content: () => {
+            if (process.server) {
+              const userAgent = useRequestHeaders()['user-agent']
+              const inAppBrowser = detectInAppBrowser(userAgent || '')
+              return inAppBrowser?.includes('line')
                 ? 'https://placehold.jp/20d523/ffffff/150x150.png?text=LINE'
                 : 'https://placehold.jp/ff5a5f/ffffff/150x150.png?text=OGP'
-              : 'https://placehold.jp/ff5a5f/ffffff/150x150.png?text=OGP'
+            }
+            return 'https://placehold.jp/ff5a5f/ffffff/150x150.png?text=OGP'
+          }
         },
         // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -85,6 +115,19 @@ export default defineNuxtConfig({
       compilerOptions: {
         noImplicitReturns: false // For middleware
       }
+    }
+  },
+  vite: {
+    server: {
+      hmr: {
+        clientPort: 24678 // HMRクライアントポートを指定（デフォルトは24678）
+      }
+    }
+  },
+  hooks: {
+    listen: (server, { host, port }) => {
+      const address = `http://${host}:${port}`
+      console.log(`Nuxt.js application is running at ${address}`)
     }
   }
 })
